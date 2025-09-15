@@ -1,0 +1,40 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    color: white;
+}
+
+#status-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    transition: background-color 0.5s ease;
+}
+
+/* Rode achtergrond (standaard) */
+.not-arrived {
+    background-color: #e74c3c; /* Rood */
+}
+
+/* Groene achtergrond (als je er bent) */
+.arrived {
+    background-color: #2ecc71; /* Groen */
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    margin-top: 20px;
+}

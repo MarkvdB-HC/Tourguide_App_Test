@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dirk Geofence Test</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Dirk App">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+<body>
+
+    <!-- Installatieknop voor PWA -->
+    <!-- <div style="text-align:center; margin-top:16px;">
+        <button id="installPWAButton" style="display:none;">Installeer deze app</button>
+    </div> -->
+
+    <div id="status-container" class="not-arrived">
+        <h1 id="status-text">Je bent nog niet bij de Dirk.</h1>
+        <p>Klik op de knop om de tracking te starten.</p>
+        <button id="startButton">Start Tracking</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
