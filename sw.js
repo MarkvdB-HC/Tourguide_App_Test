@@ -1,7 +1,6 @@
 const CACHE_NAME = 'dirk-geofence-v1';
 // De lijst met bestanden die de app nodig heeft om offline te werken.
 const urlsToCache = [
-    '/',
     'index.html',
     'style.css',
     'script.js',
