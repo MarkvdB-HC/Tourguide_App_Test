@@ -1,4 +1,20 @@
-// Wacht tot de DOM volledig is geladen
+let deferredPrompt;
+document.addEventListener('DOMContentLoaded', () => {
+    const startButton = document.getElementById('startButton');
+
+    // Registreer de Service Worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .then(registration => console.log('Service Worker geregistreerd!', registration))
+            .catch(error => console.error('Service Worker registratie mislukt:', error));
+    }
+
+    startButton.addEventListener('click', () => {
+        console.log('Tracking gestart...');
+        startButton.style.display = 'none'; // Verberg de knop na het starten
+        startTracking();
+    });
+});
 
 // --- Configuratie ---
 const dirkCoords = {
