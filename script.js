@@ -1,47 +1,5 @@
 // Wacht tot de DOM volledig is geladen
 
-// PWA Installatieknop functionaliteit
-let deferredPrompt;
-document.addEventListener('DOMContentLoaded', () => {
-    const startButton = document.getElementById('startButton');
-    const installBtn = document.getElementById('installPWAButton');
-
-    // Registreer de Service Worker
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js')
-            .then(registration => console.log('Service Worker geregistreerd!', registration))
-            .catch(error => console.error('Service Worker registratie mislukt:', error));
-    }
-
-    startButton.addEventListener('click', () => {
-        console.log('Tracking gestart...');
-        startButton.style.display = 'none'; // Verberg de knop na het starten
-        startTracking();
-    });
-
-    // Luister naar het beforeinstallprompt event
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        installBtn.style.display = 'inline-block';
-    });
-
-    installBtn.addEventListener('click', () => {
-        if (deferredPrompt) {
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('PWA installatie geaccepteerd');
-                } else {
-                    console.log('PWA installatie geweigerd');
-                }
-                installBtn.style.display = 'none';
-                deferredPrompt = null;
-            });
-        }
-    });
-});
-
 // --- Configuratie ---
 const dirkCoords = {
     lat: 51.88511875058895,
@@ -87,8 +45,9 @@ function locationSuccess(position) {
     // Check of we binnen de straal zijn en nog niet zijn "aangekomen"
     if (distance <= radiusInMeters && !hasArrived) {
         hasArrived = true; // Zet de vlag!
-        updateUItoArrived();
+        
         sendArrivalNotification();
+        updateUItoArrived();
     }
 }
 
