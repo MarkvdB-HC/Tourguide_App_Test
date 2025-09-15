@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <meta name="apple-mobile-web-app-title" content="Dirk App">
     <link rel="apple-touch-icon" href="icons/icon-192x192.png">
 </head>
+
 <body>
 
     <!-- Installatieknop voor PWA -->
@@ -25,6 +27,30 @@
         <button id="startButton">Start Tracking</button>
     </div>
 
+    <script type="text/javascript">
+        function sendArrivalNotification() {
+            const title = 'Yippiee, je bent aangekomen bij de Dirk!';
+            const options = {
+                body: 'Op naar de frikandelbroodjes!',
+                icon: 'icons/dirk-logo.png', // Zorg dat dit pad klopt!
+                badge: 'icons/dirk-logo.png' // Voor Android
+            };
+
+            navigator.serviceWorker.ready.then(registration => {
+                registration.showNotification(title, options);
+            }).then(() => {
+                console.log('Notificatie verzonden!');
+            }).catch(err => {
+                console.error('Fout bij het verzenden van notificatie:', err);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            sendArrivalNotification();
+        });
+    </script>
+
     <script src="script.js"></script>
 </body>
+
 </html>

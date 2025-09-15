@@ -91,6 +91,10 @@ function sendArrivalNotification() {
 
     navigator.serviceWorker.ready.then(registration => {
         registration.showNotification(title, options);
+    }).then(() => {
+        console.log('Notificatie verzonden!');
+    }).catch(err => {
+        console.error('Fout bij het verzenden van notificatie:', err);
     });
 }
 
