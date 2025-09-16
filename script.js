@@ -16,6 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+});
+
 // --- Configuratie ---
 const dirkCoords = {
     lat: 51.886278850897476,
