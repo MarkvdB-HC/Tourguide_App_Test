@@ -16,15 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-});
-
 // --- Configuratie ---
 const dirkCoords = {
-    lat: 51.886278850897476,
-    lon: 4.481296528583239
+    lat: 51.88511875058895,
+    lon: 4.489319736158438
 };
 const radiusInMeters = 50;
 let hasArrived = false; // Vlag om te zorgen dat we maar één keer notificeren
